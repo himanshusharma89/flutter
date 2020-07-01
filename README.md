@@ -2,7 +2,7 @@
 
 The Flutter project developing under The Uplift Project.
 
-[![Generic badge](https://img.shields.io/badge/TRADEWINDS-APP-ORANGE.svg)](https://github.com/himanshusharma89/tradewinds)
+[![Generic badge](https://img.shields.io/badge/TRADEWINDS-APP-ORANGE.svg)](https://github.com/himanshusharma89/flutter)
 
 ## Getting Started
 
@@ -18,17 +18,17 @@ For getting started with Flutter, you can also refer
 samples, guidance on mobile development, and a full API reference.
 
 ## Setting up the project
-1. Go to the [project repo](https://github.com/himanshusharma89/tradewinds) and fork it by clicking "Fork".
+1. Go to the [project repo](https://github.com/himanshusharma89/flutter) and fork it by clicking "Fork".
 
 2. If you are working on Windows, download the [Git Bash for Windows](https://gitforwindows.org/) to get a full Unix Bash with Git Functionality.
 
 3. Clone the repo to your system using 
 ```
-`git clone https://github.com/<your-github-username>/tradewinds`
+`git clone https://github.com/<your-github-username>/flutter`
 ```
 4. Navigate to the project directory.
 ```
-cd tradewinds
+cd flutter
 ```
 5. Create a new branch.
 ```
@@ -44,7 +44,7 @@ git add .
 #Commit to the local repo
 git commit -m "<your_commit_message>"
 ```
->Sync up your local repo with [original repo](https://github.com/himanshusharma89/tradewinds) (Upstream) before pushing your commits. This avoids unnecessary conflicts during the merge.
+>Sync up your local repo with [original repo](https://github.com/himanshusharma89/flutter) (Upstream) before pushing your commits. This avoids unnecessary conflicts during the merge.
 
 8. Push your local commits to the remote repo.
 ```
@@ -55,7 +55,7 @@ git push -u origin <your_branch_name>
 10. Congratulations! you've made your contribution to tradewinds project.
 
 ## Issues
-To raise specific issues, bugs, or feature requests use [this link](https://github.com/himanshusharma89/tradewinds/issues).
+To raise specific issues, bugs, or feature requests use [this link](https://github.com/himanshusharma89/flutter/issues).
 
 
 ## Clean Code Guide Lines
