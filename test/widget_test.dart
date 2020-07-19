@@ -7,13 +7,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tradewinds/Screens/Search_Screen.dart';
 
 import 'package:tradewinds/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(searchScreen());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
