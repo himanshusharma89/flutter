@@ -10,10 +10,10 @@ This is an E-commerce Flutter project devloping under The Uplift Project. This a
 ![Stars](https://img.shields.io/github/stars/himanshusharma89/flutter)
 
 ## Prerequisites :heavy_check_mark:
-- Ability to use Git and Github 
-- Basic knowledge of Dart and Flutter
-- Basic knowledge of Firebase and willingness to learn more
-- UI/UX skills are appreciable but not mandatory
+- Ability to use Git and Github. 
+- Basic knowledge of Dart and Flutter.
+- Basic knowledge of Firebase and willingness to learn more.
+- UI/UX skills are appreciable but not mandatory.
 
 ## Getting Started
 
