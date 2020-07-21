@@ -1,3 +1,4 @@
+
 <h1 align="center">Tradewinds</h1>
 <hr>
 This is an E-commerce Flutter project devloping under The Uplift Project. This application enables users to buy products oniline from an online store
@@ -8,6 +9,12 @@ This is an E-commerce Flutter project devloping under The Uplift Project. This a
 ![Pull Requests](https://img.shields.io/github/issues-pr/himanshusharma89/flutter)
 ![Forks](https://img.shields.io/github/forks/himanshusharma89/flutter)
 ![Stars](https://img.shields.io/github/stars/himanshusharma89/flutter)
+
+# Tradewinds - An Ecommerce App
+
+The Flutter project developing under The Uplift Project.
+
+[![Generic badge](https://img.shields.io/badge/TRADEWINDS-APP-ORANGE.svg)](https://github.com/himanshusharma89/flutter)
 
 ## Prerequisites :heavy_check_mark:
 - Ability to use Git and Github. 
@@ -23,7 +30,7 @@ First Flutter project? Here are a few resources to get you started:
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
+For getting started with Flutter, you can also refer
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
@@ -99,7 +106,7 @@ click on `Compare and Pull Request`
 - Piyush Davda
 - Prithvi
 - Raghav Garg
-- Rahul Garg
+- Rahul Gambhir
 - Ritik
 - Riya Suntwal
 - Shreesh Tripathi
@@ -109,6 +116,45 @@ click on `Compare and Pull Request`
 - Sreya Salil
 - Suhani Chawla
 - Utkarsh Mishra
+
+## Setting up the project
+1. Go to the [project repo](https://github.com/himanshusharma89/flutter) and fork it by clicking "Fork".
+
+2. If you are working on Windows, download the [Git Bash for Windows](https://gitforwindows.org/) to get a full Unix Bash with Git Functionality.
+
+3. Clone the repo to your system using 
+```
+`git clone https://github.com/<your-github-username>/flutter`
+```
+4. Navigate to the project directory.
+```
+cd flutter
+```
+5. Create a new branch.
+```
+git checkout -b <your_branch_name>
+```
+6. Make changes in source code.
+
+7. Stage your changes and commit
+```
+#Add changes to Index
+git add .
+
+#Commit to the local repo
+git commit -m "<your_commit_message>"
+```
+>Sync up your local repo with [original repo](https://github.com/himanshusharma89/flutter) (Upstream) before pushing your commits. This avoids unnecessary conflicts during the merge.
+
+8. Push your local commits to the remote repo.
+```
+git push -u origin <your_branch_name>
+```
+9. Create a PR !
+
+10. Congratulations! you've made your contribution to tradewinds project.
+
+
 ## Issues
 To raise specific issues, bugs, or feature requests use [this link](https://github.com/himanshusharma89/flutter/issues).
 
@@ -130,4 +176,7 @@ To raise specific issues, bugs, or feature requests use [this link](https://gith
 - If you are building a widget that is specific to only single screen then put it in to screen folder, else put it in to the widgets folder. E.g. If you are buidling a widget that will only be used in the profile screen, then put it in to the profile screen folder, else if you are building a widget that can be used more than one location, put it in the widgets folder.
 - Use Standard formatting and trailing commas. [For More Info, check the official Docs](https://flutter.dev/docs/development/tools/formatting).
 
+
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/himanshusharma89/flutter)
+
+
