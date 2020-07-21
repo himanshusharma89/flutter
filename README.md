@@ -10,12 +10,6 @@ This is an E-commerce Flutter project devloping under The Uplift Project. This a
 ![Forks](https://img.shields.io/github/forks/himanshusharma89/flutter)
 ![Stars](https://img.shields.io/github/stars/himanshusharma89/flutter)
 
-# Tradewinds - An Ecommerce App
-
-The Flutter project developing under The Uplift Project.
-
-[![Generic badge](https://img.shields.io/badge/TRADEWINDS-APP-ORANGE.svg)](https://github.com/himanshusharma89/flutter)
-
 ## Prerequisites :heavy_check_mark:
 - Ability to use Git and Github. 
 - Basic knowledge of Dart and Flutter.
@@ -101,7 +95,7 @@ click on `Compare and Pull Request`
 - Himanshu Sharma
 - Vipin Malik
 ### Moderator
-- Sayed Kazim Mehdi
+- Kazim Mehdi
 ### Participants
 - Piyush Davda
 - Prithvi
@@ -112,48 +106,10 @@ click on `Compare and Pull Request`
 - Shreesh Tripathi
 - Shrey Gupta
 - Shubhra Suman
-- Simran
+- Simran Taneja
 - Sreya Salil
 - Suhani Chawla
 - Utkarsh Mishra
-
-## Setting up the project
-1. Go to the [project repo](https://github.com/himanshusharma89/flutter) and fork it by clicking "Fork".
-
-2. If you are working on Windows, download the [Git Bash for Windows](https://gitforwindows.org/) to get a full Unix Bash with Git Functionality.
-
-3. Clone the repo to your system using 
-```
-`git clone https://github.com/<your-github-username>/flutter`
-```
-4. Navigate to the project directory.
-```
-cd flutter
-```
-5. Create a new branch.
-```
-git checkout -b <your_branch_name>
-```
-6. Make changes in source code.
-
-7. Stage your changes and commit
-```
-#Add changes to Index
-git add .
-
-#Commit to the local repo
-git commit -m "<your_commit_message>"
-```
->Sync up your local repo with [original repo](https://github.com/himanshusharma89/flutter) (Upstream) before pushing your commits. This avoids unnecessary conflicts during the merge.
-
-8. Push your local commits to the remote repo.
-```
-git push -u origin <your_branch_name>
-```
-9. Create a PR !
-
-10. Congratulations! you've made your contribution to tradewinds project.
-
 
 ## Issues
 To raise specific issues, bugs, or feature requests use [this link](https://github.com/himanshusharma89/flutter/issues).
