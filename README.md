@@ -163,7 +163,7 @@ To raise specific issues, bugs, or feature requests use [this link](https://gith
 
 - General Rule of thumb is to have 1 Widget per File, If a screen has multiple widgets break them down and put them in to their file either in the same folder or in the widgets folder.
 - Each file should be a maximum of 200-300 lines. If longer than that, extract code to another widget.
-- Variables, Methods, Objects to be readable
+- Variables, Methods, Objects to be readable.
   `e.g. updateStatus, showConfirmButton`
   (Please do not use generic words. Ask your teammates if you are confused about what wordings to use.)
 - Reuse code. Do not duplicate code in many places. Reuse code that has been written.
