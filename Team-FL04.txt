@@ -1,0 +1,67 @@
+﻿The Uplift Project
+Team-FL04
+
+
+Team Details:
+
+
+Mentors
+	Email
+	Himanshu Sharma
+	himanshusharma@ieee.org
+	Vipin Malik
+	vipinmalik941@gmail.com
+	
+
+
+
+Moderator
+	Email
+	kazim mehdi
+	kazimsayed954@gmail.com
+	
+
+
+
+Participants
+	Email
+	Sreya Salil
+	sreya1805@gmail.com
+	Utkarsh Mishra
+	utkarsh07022000@gmail.com
+	Riya Suntwal
+	carrisun91rio@gmail.com
+	Shrey Gupta
+	guptashrey01@gmail.com
+	Shubhra Suman
+	shubhramail2000@gmail.com
+	Ritik
+	ritik6125@gmail.com
+	Raghav Garg
+	raghavgarg.81.rg@gmail.com
+	Prithvi
+	rajprithvi181998@gmail.com
+	Shreesh Tripathi
+	shreesh17march@gmail.com
+	Suhani Chawla
+	suhanichawla2000@gmail.com
+	Piyush Davda
+	pdavda07@gmail.com
+	Rahul Gambhir
+	gambhirrahul0@gmail.com
+	
+
+Project Domain: E-Commerce
+Project Name: Tradewinds
+Description: An E-Commerce app 
+Deadlines: 
+* Month 1: 
+* Week 1 & Week 2 : Introduction to Flutter :
+   * This task includes setting up the installation of the Flutter and then Exploring the different widgets in the flutter. And in the meantime contributing to small issues created by the mentors.
+* Week 3 : Work on the Core Project : 
+   * The main work for the project begins from week 3 which includes UI and UX creation, Firebase integration and other issues created by the mentor.
+* Month 2: 
+* Week1 : Basic Authentication with Firebase, Profile Section of the User.
+* Week2: State Management using Provider or BLoC
+* Week3: Creating documents on Firebase Cloud containing product details
+* Week4: Using the documents present on Firebase in the App without any hard coded data (Or making the app dynamic)
