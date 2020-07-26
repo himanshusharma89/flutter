@@ -125,12 +125,7 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
                    "email": emailAddress,
                   };
                    await Firestore().collection("Users").document(emailAddress).setData(dataObject); 
-                   Navigator.push(
-                     context,
-                     MaterialPageRoute(
-                       builder: (BuildContext context) => TabPage()),
-                     );
-                
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TabPage()));
                   },
               child: Text(
                 'Continue',
