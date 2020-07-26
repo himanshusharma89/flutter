@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tradewinds/dashboard.dart';
 import 'package:tradewinds/sign_up.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LogInScreen extends StatefulWidget {
   @override
@@ -20,12 +21,11 @@ class _LogInScreenState extends State<LogInScreen> {
         children: <Widget>[
           Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only(bottom: 50),
+            padding: EdgeInsets.only(bottom: 30),
             child: Text(
               'Log In',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Montserrat',
+              style: GoogleFonts.montserrat(
+                fontWeight: FontWeight.w500,
                 fontSize: 26,
               ),
             ),
@@ -105,8 +105,7 @@ class _LogInScreenState extends State<LogInScreen> {
                  }, 
            child: Text(
              'Continue',
-             style: TextStyle(
-               fontFamily: 'Montserrat',
+             style: GoogleFonts.montserrat(
                fontWeight: FontWeight.bold,
              ),
            ),

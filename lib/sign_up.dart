@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tradewinds/create_profile.dart';
 import 'package:tradewinds/log_in.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 class SignUpScreen extends StatefulWidget {
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
@@ -20,13 +20,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
         children: <Widget>[
           Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only(bottom: 50),
+            padding: EdgeInsets.only(bottom: 30),
             child: Text(
-              'Create new account',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Montserrat',
+              'Create New Account',
+              style: GoogleFonts.montserrat(
                 fontSize: 26,
+                fontWeight: FontWeight.w500,
               ),
             ),
             
@@ -105,8 +104,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                  }, 
            child: Text(
              'Continue',
-             style: TextStyle(
-               fontFamily: 'Montserrat',
+             style: GoogleFonts.montserrat(
                fontWeight: FontWeight.bold,
              ),
            ),

@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:tradewinds/dashboard.dart';
 import 'package:tradewinds/log_in.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CreateProfileScreen extends StatefulWidget {
   final String email;
@@ -26,14 +27,13 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
         children: <Widget>[
           Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only(bottom: 50),
+            padding: EdgeInsets.only(bottom: 30),
             child: Text(
               'Create Profile',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Montserrat',
+              style: GoogleFonts.montserrat(
                 fontSize: 26,
-              ),
+                fontWeight: FontWeight.w500,
+              )
             ),
             
           ),
@@ -129,10 +129,9 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
                   },
               child: Text(
                 'Continue',
-                style: TextStyle(
-                  fontFamily: 'Montserrat',
+                style: GoogleFonts.montserrat(
                   fontWeight: FontWeight.bold,
-                )
+                ),
                     ),
               ),
               ),
