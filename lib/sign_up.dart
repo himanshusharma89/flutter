@@ -90,13 +90,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           onPressed: () async {
                   try{
-                    //Creating a user
                      var authResult = await FirebaseAuth.instance.createUserWithEmailAndPassword(
                      email: emailController.text, 
                      password: passwordController.text
                      );
                     if (authResult.user != null) {
-                     //If user is created succesfully it moves on the new screen, passing email we entered to the the new screen.
                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CreateProfileScreen(emailController.text)));
                     } else {
                      print("Unsuccessful!");

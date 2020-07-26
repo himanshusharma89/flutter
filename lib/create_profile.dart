@@ -118,8 +118,6 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
           onPressed:
             
            () async {
-                  // this is what happens when click the button in on the create profile screen
-                    // this is storing the data to the firebase document 
                     var dataObject = {
                    "fullName": fullNameController.text,
                    "phone": phoneNumberController.text,
