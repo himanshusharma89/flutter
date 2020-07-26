@@ -97,10 +97,7 @@ class _LogInScreenState extends State<LogInScreen> {
                      );
                     if (authResult.user != null) {
                      //If user is created succesfully it moves on the new screen, passing email we entered to the the new screen.
-                     Navigator.push(
-                     context,
-                     MaterialPageRoute(builder: (context) => TabPage()),
-                     );
+                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TabPage()));
                     } else {
                      print("Unsuccessful!");
                   }

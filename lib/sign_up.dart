@@ -97,10 +97,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                      );
                     if (authResult.user != null) {
                      //If user is created succesfully it moves on the new screen, passing email we entered to the the new screen.
-                     Navigator.push(
-                     context,
-                     MaterialPageRoute(builder: (context) => CreateProfileScreen(emailController.text)),
-                     );
+                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CreateProfileScreen(emailController.text)));
                     } else {
                      print("Unsuccessful!");
                   }
@@ -134,11 +131,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     text: ' Log In',
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        Navigator.push(
-                     context,
-                     MaterialPageRoute(
-                       builder: (BuildContext context) => LogInScreen()),
-                     );
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LogInScreen()));
                     },
                     style: TextStyle(
                       color: Colors.black,
