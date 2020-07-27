@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:tradewinds/dashboard.dart';
+import 'package:tradewinds/sign_up.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -12,11 +12,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-  Timer(Duration(seconds: 5), route);
+  Timer(Duration(seconds: 3), route);
   }
 
   route () {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TabPage()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpScreen()));
   }
 
   @override
