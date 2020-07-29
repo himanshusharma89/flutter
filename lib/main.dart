@@ -12,6 +12,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        primaryColor: Colors.black,
+        accentColor: Colors.blue[400],
       ),
       home: SplashScreen(),
     );
