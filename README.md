@@ -107,7 +107,7 @@ click on `Compare and Pull Request`
 - Shrey Gupta
 - Shubhra Suman
 - Simran Taneja
-- Sreya Salil
+- [Sreya Salil](https://github.com/SreyaSalil)
 - Suhani Chawla
 - Utkarsh Mishra
 
