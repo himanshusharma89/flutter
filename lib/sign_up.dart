@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -5,8 +7,8 @@ import 'package:tradewinds/create_profile.dart';
 import 'package:tradewinds/log_in.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-
-
+import 'package:flushbar/flushbar.dart';
+import 'package:data_connection_checker/data_connection_checker.dart';
 class SignUpScreen extends StatefulWidget {
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
@@ -19,6 +21,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
         MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),
         PatternValidator(r'(?=.*?[#?!@$%^&*-])', errorText: 'Passwords must have at least one special character')
       ]);
+  StreamSubscription<DataConnectionStatus> listener;
+
+
+
+  @override
+  void dispose() {
+    listener.cancel();
+    super.dispose();
+  }
+
+  checkInternet()async{
+    print("The statement 'this machine is connected to the Internet' is: ");
+    print(await DataConnectionChecker().hasConnection);
+    print("Current status: ${await DataConnectionChecker().connectionStatus}");
+    print("Last results: ${DataConnectionChecker().lastTryResults}");
+    listener = DataConnectionChecker().onStatusChange.listen((status) {
+      switch (status) {
+        case DataConnectionStatus.connected:
+          print('Data connection is available.');
+          break;
+        case DataConnectionStatus.disconnected:
+          print('You are disconnected from the internet.');
+          break;
+      }
+  });
+
+  return await DataConnectionChecker().connectionStatus;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,21 +133,43 @@ class _SignUpScreenState extends State<SignUpScreen> {
               borderRadius: BorderRadius.circular(6),
             ),
             onPressed: () async {
-              if(_formKey.currentState.validate()){
-                    try{
-                       var authResult = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                       email: emailController.text, 
-                       password: passwordController.text
-                       );
-                      if (authResult.user != null) {
-                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CreateProfileScreen(emailController.text)));
-                      } else {
-                       print("Unsuccessful!");
+              DataConnectionStatus status = await checkInternet();
+              if (status == DataConnectionStatus.connected){
+                if(_formKey.currentState.validate()){
+                      try{
+                        var authResult = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                        email: emailController.text, 
+                        password: passwordController.text
+                        );
+                        if (authResult.user != null) {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CreateProfileScreen(emailController.text)));
+                        } else {
+                        print("Unsuccessful!");
+                      }
+                      } catch(e){
+                        print(e);
+                      }
                     }
-                    } catch(e){
-                       print(e);
+              }else {
+                Flushbar(
+                  title: 'No Internet',
+                  message: 'Please check your internet connection!',
+                  icon: Icon(
+                    Icons.info_outline,
+                    size: 28,
+                    color: Colors.blue[300],
+                  ),
+                  duration: Duration(seconds: 3),
+                  leftBarIndicatorColor: Colors.blue[300],
+                )..show(context);
+                      // showDialog(
+                      //   context: context,
+                      //   builder: (context)=> AlertDialog(
+                      //     title: Text('No Internet'),
+                      //     content: Text('Check your Internet Connection'),
+                      //   ) 
+                      //   );
                     }
-                   }
             }, 
              child: Text(
                'Continue',
