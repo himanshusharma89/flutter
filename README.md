@@ -109,7 +109,7 @@ click on `Compare and Pull Request`
 - Simran Taneja
 - [Sreya Salil](https://github.com/SreyaSalil)
 - Suhani Chawla
-- Utkarsh Mishra
+- [Utkarsh Mishra](https://github.com/utkarsh0702)
 
 ## Issues
 To raise specific issues, bugs, or feature requests use [this link](https://github.com/himanshusharma89/flutter/issues).
