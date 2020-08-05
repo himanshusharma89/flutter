@@ -1,4 +1,3 @@
-
 <h1 align="center">Tradewinds</h1>
 <hr>
 This is an E-commerce Flutter project devloping under The Uplift Project. This application enables users to buy products oniline from an online store
@@ -11,7 +10,8 @@ This is an E-commerce Flutter project devloping under The Uplift Project. This a
 ![Stars](https://img.shields.io/github/stars/himanshusharma89/flutter)
 
 ## Prerequisites :heavy_check_mark:
-- Ability to use Git and Github. 
+
+- Ability to use Git and Github.
 - Basic knowledge of Dart and Flutter.
 - Basic knowledge of Firebase and willingness to learn more.
 - UI/UX skills are appreciable but not mandatory.
@@ -31,12 +31,12 @@ samples, guidance on mobile development, and a full API reference.
 ## Hexadecimal Codes :art:
 
 ## How can I contribute?
+
 <img src="https://media.giphy.com/media/fdLR6LGwAiVNhGQNvf/giphy.gif">
 
 **1.** Fork [this](https://github.com/himanshusharma89/flutter) repository.
 
 <img src="https://miro.medium.com/max/700/0*8NFC0LcrKJhDoQAG.png" width=300>
-
 
 **2.** Clone the forked repository.
 
@@ -62,20 +62,19 @@ git checkout -b <your_branch_name>
 
 <img src="https://media.giphy.com/media/TilmLMmWrRYYHjLfub/giphy.gif" width="300">
 
-
-
 **6.** Commit your changes.
+
 ```terminal
 git checkout -b <your_branch_name>
 ```
 
 **7.** Push your local branch to the remote repository.
+
 ```terminal
 git push -u origin <your_branch_name>
 ```
 
 **8.** Create a Pull Request!
-
 
 Finally, go to your repository in browser and click on `compare and pull requests`.
 Then add a title and description to your pull request that explains your precious effort.
@@ -86,21 +85,27 @@ click on `Compare and Pull Request`
 		
 <img src="https://user-images.githubusercontent.com/41269164/70219836-8d6ea680-176b-11ea-81d5-549093bf0954.png" width=600>
 
-**Congratulations!**  :boom: You've made your contribution to [Tradewinds](https://github.com/himanshusharma89/flutter) project.
+**Congratulations!** :boom: You've made your contribution to [Tradewinds](https://github.com/himanshusharma89/flutter) project.
 
 ## The Team:people_holding_hands:
+
 <img src="https://media.giphy.com/media/QWwEdgDbYjFbfOMJ3z/giphy.gif" width="300">
 
 ### Mentors
+
 - Himanshu Sharma
 - Vipin Malik
+
 ### Moderator
+
 - Kazim Mehdi
+
 ### Participants
+
 - Piyush Davda
 - Prithvi
 - Raghav Garg
-- Rahul Gambhir
+- [Rahul Gambhir](https://github.com/rahulgambhir)
 - Ritik
 - Riya Suntwal
 - Shreesh Tripathi
@@ -112,8 +117,8 @@ click on `Compare and Pull Request`
 - [Utkarsh Mishra](https://github.com/utkarsh0702)
 
 ## Issues
-To raise specific issues, bugs, or feature requests use [this link](https://github.com/himanshusharma89/flutter/issues).
 
+To raise specific issues, bugs, or feature requests use [this link](https://github.com/himanshusharma89/flutter/issues).
 
 ## Clean Code Guide Lines
 
@@ -127,12 +132,9 @@ To raise specific issues, bugs, or feature requests use [this link](https://gith
 - File names to hyphenated. E.g. profile_screen.dart. (Please do not use ProfileScreen).
 - Always use a Strongly Typed Code i.e. Every Variable should have concrete type, Don't use dynamic type for variables.
 - All static values to be declared constants in lib > util.
-`E.g. “Action performed successfully” to be moved into lib > util > display_constants.dart`
-- If you are building a page, please name it with suffix, _screen.dart. If you are creating Profile Screen, then name it as`profile_screen.dart`.
+  `E.g. “Action performed successfully” to be moved into lib > util > display_constants.dart`
+- If you are building a page, please name it with suffix, \_screen.dart. If you are creating Profile Screen, then name it as`profile_screen.dart`.
 - If you are building a widget that is specific to only single screen then put it in to screen folder, else put it in to the widgets folder. E.g. If you are buidling a widget that will only be used in the profile screen, then put it in to the profile screen folder, else if you are building a widget that can be used more than one location, put it in the widgets folder.
 - Use Standard formatting and trailing commas. [For More Info, check the official Docs](https://flutter.dev/docs/development/tools/formatting).
 
-
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/himanshusharma89/flutter)
-
-
