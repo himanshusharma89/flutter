@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "561723951706",
+    "firebase_url": "https://tradewinds-1d7e2.firebaseio.com",
+    "project_id": "tradewinds-1d7e2",
+    "storage_bucket": "tradewinds-1d7e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561723951706:android:4b4a0f87db95fa581ce663",
+        "android_client_info": {
+          "package_name": "com.theupliftproject.tradewinds"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561723951706-6ih2csiq14brj5dna8v9pnc3bmtp2t0c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4v1fAiICNE0Ket39A8iudOSBzT1CWdfg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561723951706-6ih2csiq14brj5dna8v9pnc3bmtp2t0c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
