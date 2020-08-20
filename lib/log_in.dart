@@ -1,9 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tradewinds/dashboard.dart';
 import 'package:tradewinds/sign_up.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:flushbar/flushbar.dart';
 
 class LogInScreen extends StatefulWidget {
   @override
@@ -11,6 +15,34 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
+  StreamSubscription<DataConnectionStatus> listener;
+
+
+  @override
+  void dispose() {
+    listener.cancel();
+    super.dispose();
+  }
+
+  checkInternet()async{
+    print("The statement 'this machine is connected to the Internet' is: ");
+    print(await DataConnectionChecker().hasConnection);
+    print("Current status: ${await DataConnectionChecker().connectionStatus}");
+    print("Last results: ${DataConnectionChecker().lastTryResults}");
+    listener = DataConnectionChecker().onStatusChange.listen((status) {
+      switch (status) {
+        case DataConnectionStatus.connected:
+          print('Data connection is available.');
+          break;
+        case DataConnectionStatus.disconnected:
+          print('You are disconnected from the internet.');
+          break;
+      }
+  });
+
+  return await DataConnectionChecker().connectionStatus;
+  }
+  
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
@@ -89,6 +121,8 @@ class _LogInScreenState extends State<LogInScreen> {
             borderRadius: BorderRadius.circular(6),
           ),
           onPressed: () async {
+            DataConnectionStatus status = await checkInternet();
+            if (status == DataConnectionStatus.connected){
                   try{
                      var authResult = await FirebaseAuth.instance.signInWithEmailAndPassword(
                      email: emailController.text, 
@@ -102,6 +136,26 @@ class _LogInScreenState extends State<LogInScreen> {
                   } catch(e){
                      print(e);
                   }
+                  }else {
+                    Flushbar(
+                  title: 'No Internet',
+                  message: 'Please check your internet connection!',
+                  icon: Icon(
+                    Icons.info_outline,
+                    size: 28,
+                    color: Colors.blue[300],
+                  ),
+                  duration: Duration(seconds: 3),
+                  leftBarIndicatorColor: Colors.blue[300],
+                )..show(context);
+                  // showDialog(
+                  //   context: context,
+                  //   builder: (context)=> AlertDialog(
+                  //     title: Text('No Internet'),
+                  //     content: Text('Check your Internet Connection'),
+                  //   ) 
+                  //    );
+                }
                  }, 
            child: Text(
              'Continue',
