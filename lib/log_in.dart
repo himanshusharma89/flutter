@@ -14,7 +14,9 @@ class LogInScreen extends StatefulWidget {
   _LogInScreenState createState() => _LogInScreenState();
 }
 
-class _LogInScreenState extends State<LogInScreen> {
+class _LogInScreenState extends State<LogInScreen> with TickerProviderStateMixin{
+  int _state = 0;
+
   StreamSubscription<DataConnectionStatus> listener;
 
 
@@ -109,21 +111,19 @@ class _LogInScreenState extends State<LogInScreen> {
 
           SizedBox(height: 20,),
 
-          Container(
-            width: double.maxFinite,
-            height: 50,
-            child: RaisedButton(
-          color: Color(0XFF0195f7),
-          disabledColor: Color(0XFF0195f7).withOpacity(0.4),
-          disabledTextColor: Colors.grey.withOpacity(0.5),
-          textColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(6),
-          ),
-          onPressed: () async {
-            DataConnectionStatus status = await checkInternet();
-            if (status == DataConnectionStatus.connected){
-                  try{
+          Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: new MaterialButton(
+                child: setUpButtonChild(),
+                onPressed: () async {
+              DataConnectionStatus status = await checkInternet();
+              if (status == DataConnectionStatus.connected){
+                setState(() {
+                    if (_state == 0) {
+                      animateButton();
+                    }
+                  });
+                try{
                      var authResult = await FirebaseAuth.instance.signInWithEmailAndPassword(
                      email: emailController.text, 
                      password: passwordController.text
@@ -137,7 +137,7 @@ class _LogInScreenState extends State<LogInScreen> {
                      print(e);
                   }
                   }else {
-                    Flushbar(
+                Flushbar(
                   title: 'No Internet',
                   message: 'Please check your internet connection!',
                   icon: Icon(
@@ -148,23 +148,16 @@ class _LogInScreenState extends State<LogInScreen> {
                   duration: Duration(seconds: 3),
                   leftBarIndicatorColor: Colors.blue[300],
                 )..show(context);
-                  // showDialog(
-                  //   context: context,
-                  //   builder: (context)=> AlertDialog(
-                  //     title: Text('No Internet'),
-                  //     content: Text('Check your Internet Connection'),
-                  //   ) 
-                  //    );
-                }
-                 }, 
-           child: Text(
-             'Continue',
-             style: GoogleFonts.montserrat(
-               fontWeight: FontWeight.bold,
-             ),
-           ),
-           ),
-          ),
+
+                    }
+            },
+                elevation: 4.0,
+                minWidth: double.infinity,
+                height: 48.0,
+                color: Color(0XFF0195f7),
+              ),
+            ),
+
           Container(
             alignment: Alignment.center,
             height: 60,
@@ -200,5 +193,34 @@ class _LogInScreenState extends State<LogInScreen> {
         ],
       ),
     );
+  }
+  Widget setUpButtonChild() {
+    if (_state == 0) {
+      return new Text(
+               'Continue',
+               style: GoogleFonts.montserrat(
+                 fontWeight: FontWeight.bold,
+                 color: Colors.white,
+               ),
+             );
+    } else if (_state == 1) {
+      return CircularProgressIndicator(
+        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+      );
+    } else {
+      return Icon(Icons.check, color: Colors.white);
+    }
+  }
+
+  void animateButton() {
+    setState(() {
+      _state = 1;
+    });
+
+    Timer(Duration(milliseconds: 3300), () {
+      setState(() {
+        _state = 2;
+      });
+    });
   }
 }

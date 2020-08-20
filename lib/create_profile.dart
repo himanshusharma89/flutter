@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +9,7 @@ import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flushbar/flushbar.dart';
 
 class CreateProfileScreen extends StatefulWidget {
+
   final String email;
   CreateProfileScreen(this.email);
   
@@ -18,7 +18,8 @@ class CreateProfileScreen extends StatefulWidget {
   _CreateProfileScreenState createState() => _CreateProfileScreenState();
 }
 
-class _CreateProfileScreenState extends State<CreateProfileScreen> {
+class _CreateProfileScreenState extends State<CreateProfileScreen> with TickerProviderStateMixin{
+  int _state=0;
   StreamSubscription<DataConnectionStatus> listener;
 
 
@@ -136,22 +137,18 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
 
           SizedBox(height: 20,),
 
-          Container(
-            width: double.maxFinite,
-            height: 50,
-            child: RaisedButton(
-            color: Color(0XFF0195f7),
-            disabledColor: Color(0XFF0195f7).withOpacity(0.4),
-            disabledTextColor: Colors.grey.withOpacity(0.5),
-            textColor: Colors.white,
-            shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(6),
-          ),
-          onPressed:
-            
-           () async  {
+          Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: new MaterialButton(
+                child: setUpButtonChild(),
+                onPressed: () async {
               DataConnectionStatus status = await checkInternet();
-            if (status == DataConnectionStatus.connected){
+              if (status == DataConnectionStatus.connected){
+                setState(() {
+                    if (_state == 0) {
+                      animateButton();
+                    }
+                  });
                     var dataObject = {
                    "fullName": fullNameController.text,
                    "phone": phoneNumberController.text,
@@ -161,7 +158,7 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
                    await Firestore().collection("Users").document(emailAddress).setData(dataObject); 
                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TabPage()));
                    }else {
-                     Flushbar(
+                Flushbar(
                   title: 'No Internet',
                   message: 'Please check your internet connection!',
                   icon: Icon(
@@ -172,23 +169,16 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
                   duration: Duration(seconds: 3),
                   leftBarIndicatorColor: Colors.blue[300],
                 )..show(context);
-                  // showDialog(
-                  //   context: context,
-                  //   builder: (context)=> AlertDialog(
-                  //     title: Text('No Internet'),
-                  //     content: Text('Check your Internet Connection'),
-                  //   ) 
-                  //    );
-                }
-                  },
-              child: Text(
-                'Continue',
-                style: GoogleFonts.montserrat(
-                  fontWeight: FontWeight.bold,
-                ),
-                    ),
+
+                    }
+            },
+                elevation: 4.0,
+                minWidth: double.infinity,
+                height: 48.0,
+                color: Color(0XFF0195f7),
               ),
-              ),
+            ),
+
           Container(
             alignment: Alignment.center,
             height: 60,
@@ -224,5 +214,34 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
         ],
       ),
     );
+  }
+  Widget setUpButtonChild() {
+  if (_state == 0) {
+    return new Text(
+              'Continue',
+              style: GoogleFonts.montserrat(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            );
+  } else if (_state == 1) {
+    return CircularProgressIndicator(
+      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+    );
+  } else {
+    return Icon(Icons.check, color: Colors.white);
+  }
+  }
+
+  void animateButton() {
+  setState(() {
+    _state = 1;
+  });
+
+  Timer(Duration(milliseconds: 3300), () {
+    setState(() {
+      _state = 2;
+    });
+  });
   }
 }
