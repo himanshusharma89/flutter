@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tradewinds/pre_signUp_slider.dart';
 import 'dart:async';
 import 'package:tradewinds/sign_up.dart';
 
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   route () {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpScreen()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));
   }
 
   @override
