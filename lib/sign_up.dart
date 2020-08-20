@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,11 +9,14 @@ import 'package:form_field_validator/form_field_validator.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 class SignUpScreen extends StatefulWidget {
+
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpScreenState extends State<SignUpScreen> with TickerProviderStateMixin {
+  int _state = 0;
+  
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final passwordValidator = MultiValidator ([
         RequiredValidator(errorText: 'Password is required'),
@@ -121,21 +123,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
             SizedBox(height: 20,),
 
-            Container(
-              width: double.maxFinite,
-              height: 50,
-              child: RaisedButton(
-            color: Color(0XFF0195f7),
-            disabledColor: Color(0XFF0195f7).withOpacity(0.4),
-            disabledTextColor: Colors.grey.withOpacity(0.5),
-            textColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(6),
-            ),
-            onPressed: () async {
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: new MaterialButton(
+                child: setUpButtonChild(),
+                onPressed: () async {
               DataConnectionStatus status = await checkInternet();
               if (status == DataConnectionStatus.connected){
+                
                 if(_formKey.currentState.validate()){
+                  setState(() {
+                    if (_state == 0) {
+                      animateButton();
+                    }
+                  });
                       try{
                         var authResult = await FirebaseAuth.instance.createUserWithEmailAndPassword(
                         email: emailController.text, 
@@ -162,23 +163,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   duration: Duration(seconds: 3),
                   leftBarIndicatorColor: Colors.blue[300],
                 )..show(context);
-                      // showDialog(
-                      //   context: context,
-                      //   builder: (context)=> AlertDialog(
-                      //     title: Text('No Internet'),
-                      //     content: Text('Check your Internet Connection'),
-                      //   ) 
-                      //   );
+
                     }
-            }, 
-             child: Text(
-               'Continue',
-               style: GoogleFonts.montserrat(
-                 fontWeight: FontWeight.bold,
-               ),
-             ),
-             ),
+            },
+                elevation: 4.0,
+                minWidth: double.infinity,
+                height: 48.0,
+                color: Color(0XFF0195f7),
+              ),
             ),
+
             Container(
               alignment: Alignment.center,
               height: 60,
@@ -211,5 +205,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
       ),
     );
+  }
+  Widget setUpButtonChild() {
+    if (_state == 0) {
+      return new Text(
+               'Continue',
+               style: GoogleFonts.montserrat(
+                 fontWeight: FontWeight.bold,
+                 color: Colors.white,
+               ),
+             );
+    } else if (_state == 1) {
+      return CircularProgressIndicator(
+        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+      );
+    } else {
+      return Icon(Icons.check, color: Colors.white);
+    }
+  }
+
+  void animateButton() {
+    setState(() {
+      _state = 1;
+    });
+
+    Timer(Duration(milliseconds: 3300), () {
+      setState(() {
+        _state = 2;
+      });
+    });
   }
 }
