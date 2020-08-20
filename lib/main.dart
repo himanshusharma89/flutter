@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tradewinds/pre_signUp_slider.dart';
 import 'package:tradewinds/splash_screen.dart';
 import 'package:tradewinds/purchase_history.dart';
 import 'package:tradewinds/wish_list.dart';
