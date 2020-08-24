@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-
+import 'package:tradewinds/home_screen.dart';
+import 'package:tradewinds/profile_page.dart';
 class TabPage extends StatefulWidget {
   @override
   _TabPageState createState() => _TabPageState();
@@ -18,6 +19,13 @@ class _TabPageState extends State<TabPage> {
     Colors.pink,
     Colors.amber[600],
     Colors.teal
+  ];
+
+  List<Widget> screens = [
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    ProfilePage(),
   ];
 
   @override
@@ -84,14 +92,6 @@ class _TabPageState extends State<TabPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         extendBody: true,
-        appBar: AppBar(
-          brightness: Brightness.dark,
-          title: Text(
-            'GoogleNavBar',
-            style: TextStyle(color: Colors.black),
-          ),
-          backgroundColor: Colors.white,
-        ),
         body: PageView.builder(
           onPageChanged: (page) {
             setState(() {
@@ -101,7 +101,7 @@ class _TabPageState extends State<TabPage> {
           controller: controller,
           itemBuilder: (context, position) {
             return Container(
-              color: colors[position],
+              child: screens[position],
             );
           },
           itemCount: tabs.length, // Can be null
